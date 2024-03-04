@@ -1,0 +1,34 @@
+# Chapter 5 - Building Castles in the Clouds with Cloud Engineering
+
+`Writing Style`: conversational
+
+`History`: Let me start by demystifying the cloud if it hasn't already been demystified for you. When software engineers talk about the cloud all we mean are servers owned and operated by a company that rents out the storage, and computing power of those servers to other companies. We call the owners of these servers cloud providers. Certain companies for example DropBox have built an entire business model around a software solution that rents it's compute and storage resources from a cloud provider. We call these companies cloud native companies since all of their sofware and data exists in the cloud.
+
+Most companies now days host their applications in a cloud computing platform like Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure. This was not always the case though. Prior to AWS's launch in 2006 tech companies would commonly host their web applications in their own private data centers. Data centers are expensive to operate though. Companies had to purchase the servers, and networking hardware as well as hire system administrators and network engineers to install, configure and maintain the data center. These were all sunk costs before a software application could generate the company any revenue, or reduce costs for the company.
+Platforms like AWS, GCP, and Azure grew so rapidly because they offered removed the need for all the upfront costs of hosting software.
+
+The first cloud development platform Amazon Web Services (AWS) launched in 2006 with 1 service, Super Simple Storage (S3). Later that year they added 2 more services; Simple Queueing Service (SQS), and Elastic Cloud Compute (EC2). AWS now offers ~175 different services ranging from quantum computing to satellite communication at the time of writing this. I don't know this for a fact but I imagine the first iteration of DropBox could be run on EC2 and S3 alone. Today you can choose from cloud providers including AWS, GCP, Microsoft Azure, Rumble Cloud, IBM Cloud, Oracle Cloud, Heroku and dozens of others. 
+
+`Personal Story`: I got a pretty late start with cloud engineering. I didn't even start using a cloud platform like AWS until 2016, a decade after it launched. This was partly because the company I worked for straight out of college hosted a private data center on the 9th floor of their headquarters in Norfolk, VA. Part of my onboarding at the company was a tour of the building. This included the short elevator ride from the 12th floor, where my cubicle was, down to the 9th floor so I could meet the system administrators and quite literally see the servers where my code would be hosted. During the tour of the 9th floor I was surprised to find the servers were behind bullet-proof glass. It's a fact you never really consider until faced with it. It makes sense though, on this one floor of a pretty identifiable building in downtown Norfolk, VA were ~20 server racks that ran software that generated all the revenue for several multi-milion dollar businesses. They wanted to protect their software assets from accidental and malicious interference.
+
+Mot to long after I started working for this company a hurricane came up the coast threatening flooding and power-outages. It was then I learned we had a back-up data center buried in an old mine somewhere in northern, VA. To prevent any disruption in operations management order a fail-over from the Norfolk data center to the Ashburn data center. Without getting to technical this involved deploying all of our software systems, replicating data and making networking changes so the entire company was being run out of Ashburn. Even if the hurricane destroyed the entire data center on the 9th floor in Norfolk the company would live on without customers ever knowing of the disaster that took place.
+
+The fail-over was a long tedious process and we made a lot of mistakes during it. I don't think 6 months had passed before the company made the strategic decision to move it's hosting to AWS. Not only would hosting our software in AWS be a huge cost reduction, there would be built-in fault tolerance because AWS operates data centers across the multiple regions of the world, and several data center in each region. even if the entire east coast of the United States fell into the ocean our applications would be running in data centers in the central US, and west US regions.
+
+The initiative to move our applications from a private data center to AWS was my first foray into the cloud. At a minimum we could have accomplished the move to AWS by spinning up a bunch of EC2 instances, and deploying our software to them. While this would have technically moved the company into the cloud we would be missing a lot of the benefits of being in the cloud such as the built-in fault tolerance mentioned before. There are many wrong ways to run an application in the cloud and just as many right way's to run an application in the cloud. As a cloud engineer it is up to you to figure out which solutions meets a specific applications needs the best. The application I was responsible for was fairly simple. It had 10 servers that ran the application and 3 servers that ran the database system that backed the distributed queuing system used by the application. I could have used EC2 instances for everything and called it a day, but for the past 10 years AWS offered SQS a distributed queueing system that could replace the custom queuing system we were running on 3 servers. Switching to SQS was going to save the company a lot of money, and would be able to support 3 times the amount of data in a given day. As a fledgling cloud engineer it wasn't a difficult choice to make but it was the cloud native choice to make.
+
+`Description`: Cloud engineering is the logical evolution of Full-stack development. Think of a backend developer + DevOps. Not only do you need to know how to use a Database and a RestAPI but you also need to know how to provision that infrastructure in a cloud environment like Amazon Web Services, Google Cloud Platform, or Microsoft Azure. Make a story about the last mile (also kinda DevOps)
+
+`Details`:
+ - Job Title: Cloud Engineer
+ - Career Path: Cloud Apprentice to Cloud Architect
+   - Entry Level:
+   - Mid-Level:
+   - Senior
+   - Advanced: 
+ - Salary Range: $80,000 - $160,000
+ - Tech Stack: AWS, Azure, Google Cloud, Infrastructure as Code (Terraform)
+ - Companies Hiring: Cloud Service Providers, Tech Conglomerates, Startups
+ - Day-to-Day Responsibilities: Deploying Applications, Automating Workflows, Ensuring Scalability
+ - Technical Interview: Infrastructure Design Challenge, Cloud Service Utilization
+ - Learning Resources: Cloud Provider Documentation, Cloud Certification Courses
